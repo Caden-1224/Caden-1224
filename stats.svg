@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 176" width="460" height="176" role="img" aria-label="Caden-1224 on GitHub: 13 stars across 4 owned public non-fork repositories; updated 2026-09-26T21:01Z">
+  <title>Caden-1224 - 13 stars, 4 owned public non-fork repositories</title>
+  <desc>Public repositories owned by Caden-1224, excluding forks. Includes archived repositories. Last successful update: 2026-09-26T21:01Z.</desc>
+  <defs>
+    <pattern id="dotgrid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#e2ecf8"/></pattern>
+  </defs>
+  <rect x="1" y="1" width="458" height="174" rx="10" fill="#ffffff" stroke="#d3e2f1" stroke-width="2"/>
+  <rect x="1" y="1" width="458" height="174" rx="10" fill="url(#dotgrid)"/>
+  <path d="M26 34H46" stroke="#e0483c" stroke-width="2"/>
+  <text x="54" y="39" font-family="Consolas, monospace" font-size="11" letter-spacing="1.6" fill="#526b86">CADEN-1224 / GITHUB STATS</text>
+  <path d="M230 62V138" stroke="#e2ecf8" stroke-width="1.5"/>
+  <g transform="translate(40 86)"><path d="M0 -10L2.351 -3.236L9.511 -3.09L3.804 1.236L5.878 8.09L0 4L-5.878 8.09L-3.804 1.236L-9.511 -3.09L-2.351 -3.236Z" fill="#e0483c"/></g>
+  <text x="62" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="650" fill="#12304e">13</text>
+  <text x="28" y="130" font-family="Consolas, monospace" font-size="10" letter-spacing="1.4" fill="#526b86">PUBLIC STARS</text>
+  <g transform="translate(270 86)">
+    <rect x="-8" y="-9" width="16" height="18" rx="3" fill="none" stroke="#2f6fd0" stroke-width="2"/>
+    <path d="M-4 -3H4M-4 2H4" stroke="#2f6fd0" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="292" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="650" fill="#12304e">4</text>
+  <text x="258" y="130" font-family="Consolas, monospace" font-size="10" letter-spacing="1.4" fill="#526b86">PUBLIC REPOS</text>
+  <path d="M26 148H434" stroke="#e2ecf8" stroke-width="1.5"/>
+  <text x="26" y="166" font-family="Consolas, monospace" font-size="9" letter-spacing="0.5" fill="#526b86">UPDATED 09-26 21:01 UTC</text>
+  <text x="434" y="166" text-anchor="end" font-family="Consolas, monospace" font-size="9" letter-spacing="0.5" fill="#526b86">OWNED · NON-FORK</text>
+</svg>
