@@ -25,14 +25,14 @@ I like following a problem one layer deeper. Where is the data waiting? Why does
 
 These projects trace my path from peripherals and task scheduling to interprocess communication and task runtimes.
 
-### [SlotNexus](https://github.com/Caden-1224/SlotNexus) · Featured project
+### [SlotNexus](https://github.com/Caden-1224/SlotNexus)
 
 <sub>✅ <b>0.2.0 · Validated on hardware</b> &nbsp; / &nbsp; C++17 · Linux · epoll / Reactor · ZeroMQ · CMake</sub>
 
-Multiprocess communication and inference middleware for Linux edge devices. It separates communication, task lifecycles, and model adaptation, using an offline **ASR → RAG → LLM → TTS** pipeline to validate collaboration between edge models.
+On-device multiprocess inference middleware for Linux edge devices. A general-purpose Core (communication, task routing, Node runtime) carries the first voice application module, which runs a fully offline **ASR → RAG → LLM → TTS** chain on the board.
 
-- A custom multiprocess communication architecture and task Runtime, with separate control and data planes and independently buildable Core and application modules.
-- Validated the real voice pipeline on the RK3576-based Taishan Pi 3M (4 GB); L1 and L3 each completed 30/30 requests in persistent-service WAV tests.
+- Core depends on neither voice types nor vendor SDKs and builds, tests and installs on its own (`find_package(slotnexus-core)`); nodes share one `setup / inference / cancel / taskinfo / exit` contract, task state bounds concurrent inference per task, and the Session filters stale events with a generation counter.
+- On the board the chain runs as six processes: Gateway, Manager, Session, ASR, LLM, TTS. Stage timing showed the TTS consumer chain starting too late; starting the generate → synthesise → output pipeline earlier, together with amortised O(1) resampling buffers and a continuous decoder slice, brought the p50 WAV completion time over 30 persistent-input rounds down from 6.1 / 22.9 s to 4.0 / 18.4 s for L1 / L3, and L3 TTS RTF from 0.507 to 0.272 (test conditions and attribution are in the repository).
 
 [Source and design](https://github.com/Caden-1224/SlotNexus)
 

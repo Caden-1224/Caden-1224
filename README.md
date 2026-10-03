@@ -25,14 +25,14 @@
 
 下面几个项目记录了我从外设与任务调度，走向多进程通信、再到任务运行时的过程。
 
-### [SlotNexus](https://github.com/Caden-1224/SlotNexus) · 当前主推
+### [SlotNexus](https://github.com/Caden-1224/SlotNexus)
 
 <sub>✅ <b>0.2.0 · 板端已验证</b> &nbsp; / &nbsp; C++17 · Linux · epoll / Reactor · ZeroMQ · CMake</sub>
 
-面向 Linux 边缘设备的多进程通信与推理中间件。将通信、任务生命周期与模型适配分层，以 **ASR → RAG → LLM → TTS** 全离线语音链路验证端侧模型协作。
+面向 Linux 边缘设备的端侧多进程推理中间件：自研通用 Core（通信、任务路由、Node Runtime）承载首个语音应用模块，由 **ASR → RAG → LLM → TTS** 全离线链路跑通。
 
-- 自研多进程通信架构与任务 Runtime，分离控制面与数据面，支持核心与应用模块独立构建。
-- 已在 RK3576 泰山派 3M（4 GB）验证真实语音链路；常驻 WAV 测试中，L1、L3 各完成 30/30 轮请求。
+- Core 不依赖语音类型与厂商 SDK，可独立构建、测试、安装（`find_package(slotnexus-core)`）；节点统一 `setup / inference / cancel / taskinfo / exit` 契约，任务状态约束同任务并发推理，Session 用 generation 过滤旧事件。
+- 板端为 Gateway、Manager、Session、ASR、LLM、TTS 六进程。阶段计时定位到 TTS 消费链启动过晚后，提前拉起「生成 → 合成 → 输出」流水线，并把重采样缓冲维护改为摊还 O(1)、Decoder 改为连续切片：固定输入各 30 轮中，L1 / L3 的 WAV 输出完成 p50 由 6.1 / 22.9 s 降至 4.0 / 18.4 s，L3 的 TTS RTF 由 0.507 降至 0.272（测试条件与归因见仓库）。
 
 [源码与设计](https://github.com/Caden-1224/SlotNexus)
 
