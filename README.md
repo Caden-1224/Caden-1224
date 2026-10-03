@@ -22,7 +22,7 @@
 
 ## 🛠️ 项目 · 从板端到系统
 
-这三个项目记录了我从外设与任务调度，走向多进程通信、再到任务运行时的过程。
+下面几个项目记录了我从外设与任务调度，走向多进程通信、再到任务运行时的过程。
 
 ### [SlotNexus](https://github.com/Caden-1224/SlotNexus) · 当前主推
 
@@ -45,6 +45,18 @@
 - **当前进展**：已验证 Linux 多进程链路，交付真实 ASR / LLM / TTS、ALSA 适配器与全双工音频前端；VAD 与完整板端语音交互仍待完成。
 
 [查看源码](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [当前进展与路线图](https://github.com/Caden-1224/nexweave#status)
+
+### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
+
+<sub>🏆 <b>全国初赛一等奖</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
+
+面向工业现场的采集终端：宽压供电、三路采样、RS485 协议应答、参数掉电保存与远程固件升级。App 与 BootLoader 双工程，用协作式时间片轮询替代 RTOS；OTA 走「暂存 → CRC32 → 安装 / 备份 / 回滚 → 向量表跳转」闭环。
+
+- **自研约 15,200 行 C**；协议为 ASCII-Hex 帧 + CRC16-Modbus，29 条命令覆盖系统管理、数据面、参数、告警与升级。
+- **三块自绘板卡**（18–36 V 电源板、PT100 采样板、精密电阻模拟测试板）的 EDA 工程与原理图 / PCB 一并开源。
+- 止步初赛一等奖：进北京总决赛要先垫付路费与食宿，最后放弃了。[README 里写了这件事](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026#止步初赛)。
+
+[源码与文档](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
 
 ### [STM32 Polled Scheduler](https://github.com/Caden-1224/stm32-polled-scheduler)
 

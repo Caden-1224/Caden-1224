@@ -46,6 +46,18 @@ A task framework for Linux edge devices. It brings session lifecycles, streaming
 
 [Source](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [Status and roadmap](https://github.com/Caden-1224/nexweave#status)
 
+### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
+
+<sub>🏆 <b>National Preliminary Round, First Prize</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
+
+An acquisition terminal for the factory floor: wide-range power, three sampling channels, RS485 command handling, parameter persistence across power loss, and remote firmware updates. Two separate projects (App and BootLoader) replace an RTOS with cooperative time-sliced polling; OTA closes the loop from staging through CRC32 to install, backup, rollback, and the vector-table jump.
+
+- **About 15,200 lines of C written by me**; the protocol is ASCII-Hex frames with CRC16-Modbus, and 29 commands cover system management, the data plane, parameters, alerts, and upgrades.
+- The EDA project plus schematic and PCB renders for **three self-designed boards** (18–36 V supply, PT100 sampling, precision-resistor simulator) are open-sourced with the firmware.
+- Stopped at the preliminary first prize: the trip to the Beijing finals had to be paid upfront, and I let it go. [The README says so](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026#stopping-at-the-preliminaries).
+
+[Source and documentation](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
+
 ### [STM32 Polled Scheduler](https://github.com/Caden-1224/stm32-polled-scheduler)
 
 <sub>📦 <b>Reusable template</b> &nbsp; / &nbsp; C · STM32F407 · HAL · Bare metal</sub>
