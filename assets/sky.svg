@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="28" viewBox="0 0 900 28" role="img" aria-labelledby="title">
+  <title id="title">From signals to systems — section divider</title>
+  <path d="M0 14H392M508 14H900" stroke="#d4e1f1"/>
+  <path d="M406 14H418C423 14 423 5 429 5S435 23 441 23S447 14 453 14H465V8H477V20H489V14H496" fill="none" stroke="#2f6fd0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="496" cy="14" r="2.5" fill="#e0483c"/>
+</svg>

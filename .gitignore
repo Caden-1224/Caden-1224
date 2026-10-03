@@ -1,0 +1,8 @@
+# Local previews and generated workflow output
+/dist/
+/stats-next/
+/snake-next/
+/previous/
+/preview/
+__pycache__/
+*.py[cod]
