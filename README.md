@@ -9,7 +9,7 @@
 
 <p align="center">
   <strong>通信工程在读 · 嵌入式 · Linux · 端侧 AI</strong><br>
-  从嵌入式走向计算机系统
+  从 EE 走向 CS：从底层硬件做起，往计算机系统的上层走
 </p>
 
 ## 👋 你好，我是 Caden

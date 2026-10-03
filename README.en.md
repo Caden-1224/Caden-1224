@@ -9,7 +9,7 @@
 
 <p align="center">
   <strong>Communication Engineering student · Embedded · Linux · Edge AI</strong><br>
-  From embedded systems to computer systems
+  From EE to CS: starting with low-level hardware, moving up into computer systems
 </p>
 
 ## 👋 Hi, I'm Caden
