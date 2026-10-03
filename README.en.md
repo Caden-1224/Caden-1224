@@ -14,45 +14,71 @@
 
 ## 👋 Hi, I'm Caden
 
-I study Communication Engineering. I started with microcontrollers and peripherals, and these days I work mostly on multiprocess applications and edge inference on Linux. Put the projects side by side and they trace one line: first make a feature run on the board, then work out how the scheduling, communication and resources behind it are arranged.
+I'm a Communication Engineering student finding my way into computer systems. I started with microcontrollers and peripherals, then moved into multiprocess applications and edge inference on Linux. My curiosity has grown from getting a feature to work to understanding the scheduling, communication, and resource management underneath it.
 
-I like following a problem one layer deeper. Where is the data waiting? Why does an old result arrive after cancellation? What happens to the rest of the system when a process exits? Embedded work made me attentive to timing, memory and hardware constraints; now I want to understand the software side just as well — how the budget is computed, where the boundary is drawn, and who catches the failure.
+I like following a problem one layer deeper. Where is the data waiting? Why does an old result arrive after cancellation? What happens to the rest of the system when a process exits? Embedded work made me attentive to timing, memory, and hardware constraints; now I want to understand the software side just as well.
 
-🎯 **My main line right now is computer systems.** EE gave me an intuition for signals, timing and hardware constraints; CS is where I want to put that back into the system view. I am building up the foundations and testing what I learn through projects; longer term I would like to work on GPUs and systems software.
+🎯 **My main line right now is computer systems.** EE gave me an intuition for signals, timing, and hardware constraints; CS is where I want to put that back into the system view. I'm building up the foundations and testing what I learn through projects; longer term I'd like to work on GPUs and systems software.
 
-My habit is to start with a small runnable slice, then pin the conclusions down with tests, logs and documentation — including the parts that did not work. What I have written lives in the repositories on this account.
+## 🛠️ Projects · From boards to systems
 
-## 🧰 Tech stack
+These projects trace my path from peripherals and task scheduling to interprocess communication and task runtimes.
 
-**Languages and systems**
+### [SlotNexus](https://github.com/Caden-1224/SlotNexus) · Featured project
 
-- **C / C++17**: bare-metal and driver-level C (about 15,200 lines written by me in the most recent industrial terminal), module boundaries and interface design in C++17
-- **Linux systems and network programming**: multiprocess design, epoll / Reactor event loops, TCP / NDJSON, ZeroMQ messaging, cross-process cancellation and resource cleanup
-- **Python / Shell**: scripting, build and verification tooling
+<sub>✅ <b>0.2.0 · Validated on hardware</b> &nbsp; / &nbsp; C++17 · Linux · epoll / Reactor · ZeroMQ · CMake</sub>
 
-**Embedded**
+Multiprocess communication and inference middleware for Linux edge devices. It separates communication, task lifecycles, and model adaptation, using an offline **ASR → RAG → LLM → TTS** pipeline to validate collaboration between edge models.
 
-- **Platforms**: GD32F4xx (GD32F470VE), STM32F4; Keil MDK, standard peripheral library and HAL
-- **Peripherals and mechanisms**: UART / RS485 / SPI / I²C, DMA with ring buffers, interrupts and nonblocking state machines, Timer / RTC, internal and SPI flash
-- **System-level work**: BootLoader and OTA (partitions, CRC32, backup and rollback, vector-table jump), parameters that survive power loss, cooperative time-sliced scheduling
-- **Bring-up and deployment**: register-level drivers, hardware/software bring-up, Linux aarch64 board deployment (RK3576)
+- A custom multiprocess communication architecture and task Runtime, with separate control and data planes and independently buildable Core and application modules.
+- Validated the real voice pipeline on the RK3576-based Taishan Pi 3M (4 GB); L1 and L3 each completed 30/30 requests in persistent-service WAV tests.
 
-**Engineering and tooling**
+[Source and design](https://github.com/Caden-1224/SlotNexus)
 
-- CMake / CTest, Git, Docker, GitHub Actions
-- MATLAB, OpenCV geometric vision, ROS 2; fundamentals of deep learning and PyTorch (basic)
+### [NexWeave](https://github.com/Caden-1224/nexweave)
 
-**How I work**
+<sub>🚧 <b>In development</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
 
-- Specification-driven plus test-driven: requirements first become specs, interface contracts and acceptance criteria, then implementation and regression
-- AI coding tools (Claude Code, MCP) for project-level context, code reading, plan breakdown and patch verification, leaving traceable specs and change records
+A task framework for Linux edge devices. It brings session lifecycles, streaming data, cancellation, and backend integration under explicit execution contracts so models and devices can work together.
+
+- **What I'm working through:** bounded buffering, cross-process cancellation, stale-result isolation, and cleanup when a task ends.
+- **Current progress:** validated the Linux multiprocess pipeline and implemented real ASR / LLM / TTS and ALSA adapters, plus a full-duplex audio frontend. VAD and complete hardware voice interaction remain to be integrated.
+
+[Source](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [Status and roadmap](https://github.com/Caden-1224/nexweave#status)
+
+### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
+
+<sub>🏆 <b>National Preliminary Round, First Prize</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
+
+An acquisition terminal for the factory floor: wide-range power, three sampling channels, RS485 command handling, parameter persistence across power loss, and remote firmware updates. Two separate projects (App and BootLoader) replace an RTOS with cooperative time-sliced polling; OTA closes the loop from staging through CRC32 to install, backup, rollback, and the vector-table jump.
+
+- **About 15,200 lines of C written by me**; the protocol is ASCII-Hex frames with CRC16-Modbus, and 29 commands cover system management, the data plane, parameters, alerts, and upgrades.
+- The EDA project plus schematic and PCB renders for **three self-designed boards** (18–36 V supply, PT100 sampling, precision-resistor simulator) are open-sourced with the firmware.
+- Stopped at the preliminary first prize: the trip to the Beijing finals had to be paid upfront, and I let it go. [The README says so](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026#stopping-at-the-preliminaries).
+
+[Source and documentation](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
+
+### [STM32 Polled Scheduler](https://github.com/Caden-1224/stm32-polled-scheduler)
+
+<sub>📦 <b>Reusable template</b> &nbsp; / &nbsp; C · STM32F407 · HAL · Bare metal</sub>
+
+A bare-metal template shaped by my microcontroller projects. Lightweight cooperative polling organizes periodic tasks, while **Core / Components / APP** layers separate peripheral drivers, reusable components, and application logic.
+
+- **Practices included:** DMA, ring buffers, nonblocking state machines, and modules such as dual-axis SimpleFOC control.
+- **Where it fits:** small embedded projects that need clear task organization and direct control of the hardware.
+
+[Source and usage guide](https://github.com/Caden-1224/stm32-polled-scheduler)
+
+I tend to start with a small runnable slice, then use tests, logs, and documentation to record what I learn. These repositories hold both the projects and the process of understanding them.
+
+## 🧰 Tools I work with
 
 <!-- Theme-aware SVG assets are stored in this repository. -->
 <div align="center">
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-0-en-night.svg"><img src="./assets/chips/label-0-en.svg" alt="Languages &amp; Systems" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/c-night.svg"><img src="./assets/chips/c.svg" alt="C" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/cplusplus-night.svg"><img src="./assets/chips/cplusplus.svg" alt="C++" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/python-night.svg"><img src="./assets/chips/python.svg" alt="Python" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/gnubash-night.svg"><img src="./assets/chips/gnubash.svg" alt="Shell" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/linux-night.svg"><img src="./assets/chips/linux.svg" alt="Linux" height="30"></picture>
 <br/>
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-1-en-night.svg"><img src="./assets/chips/label-1-en.svg" alt="Embedded" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/gd32-night.svg"><img src="./assets/chips/gd32.svg" alt="GD32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/stmicroelectronics-night.svg"><img src="./assets/chips/stmicroelectronics.svg" alt="STM32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/arm-night.svg"><img src="./assets/chips/arm.svg" alt="ARM" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/rtos-night.svg"><img src="./assets/chips/rtos.svg" alt="RTOS" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/bus-night.svg"><img src="./assets/chips/bus.svg" alt="Serial Bus" height="30"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-1-en-night.svg"><img src="./assets/chips/label-1-en.svg" alt="Embedded" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/stmicroelectronics-night.svg"><img src="./assets/chips/stmicroelectronics.svg" alt="STM32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/arm-night.svg"><img src="./assets/chips/arm.svg" alt="ARM" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/rtos-night.svg"><img src="./assets/chips/rtos.svg" alt="RTOS" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/bus-night.svg"><img src="./assets/chips/bus.svg" alt="Serial Bus" height="30"></picture>
 <br/>
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-2-en-night.svg"><img src="./assets/chips/label-2-en.svg" alt="Build &amp; Runtime" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/cmake-night.svg"><img src="./assets/chips/cmake.svg" alt="CMake" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/zeromq-night.svg"><img src="./assets/chips/zeromq.svg" alt="ZeroMQ" height="30"></picture>
 <br/>
