@@ -14,71 +14,45 @@
 
 ## 👋 你好，我是 Caden
 
-我从通信工程出发，正在一步步走向计算机系统。最早和单片机、外设打交道，后来开始在 Linux 上做多进程和端侧推理项目。兴趣也从“让一个功能跑起来”，延伸到它背后的调度、通信和资源管理。
+我读通信工程，从单片机和外设做起，现在主要在 Linux 上做多进程与端侧推理。把做过的东西摆在一起看，大致是一条线：先让一个功能在板子上跑起来，再去弄明白它背后的调度、通信和资源是怎么被安排的。
 
-我喜欢顺着问题往下看一层：数据在哪里等待？取消之后，旧结果为什么还会回来？一个进程退出，会影响系统的哪一部分？嵌入式的经历让我对时序、内存和硬件约束比较敏感，现在想把软件这一侧也弄明白。
+我喜欢顺着问题往下看一层：数据在哪里等？取消之后，旧结果为什么还会回来？一个进程退出，会影响系统的哪一部分？嵌入式的经历让我对时序、内存和硬件约束比较敏感，现在想把软件这一侧也弄明白——预算怎么算、边界画在哪、出错时谁能兜住。
 
 🎯 **现在的主线是计算机系统。** EE 给了我信号、时序和硬件约束的直觉，CS 让我想把这些放回系统里看。一边补基础，一边把理解放进项目里验证；长期想往 GPU 与系统软件方向走。
 
-## 🛠️ 项目 · 从板端到系统
+我做事的习惯是先跑通一个小切片，再用测试、日志和文档把结论固定下来——包括没做到的部分。写过的东西都在这个账号的仓库里。
 
-下面几个项目记录了我从外设与任务调度，走向多进程通信、再到任务运行时的过程。
+## 🧰 技术栈
 
-### [SlotNexus](https://github.com/Caden-1224/SlotNexus) · 当前主推
+**编程与系统**
 
-<sub>✅ <b>0.2.0 · 板端已验证</b> &nbsp; / &nbsp; C++17 · Linux · epoll / Reactor · ZeroMQ · CMake</sub>
+- **C / C++17**：裸机与驱动层的 C（最近的工业终端项目自研约 1.5 万行）、C++17 的模块划分与接口设计
+- **Linux 系统与网络编程**：多进程、epoll / Reactor 事件驱动、TCP / NDJSON、ZeroMQ 通信、跨进程取消与资源清理
+- **Python / Shell**：脚本、构建与验证工具链
 
-面向 Linux 边缘设备的多进程通信与推理中间件。将通信、任务生命周期与模型适配分层，以 **ASR → RAG → LLM → TTS** 全离线语音链路验证端侧模型协作。
+**嵌入式**
 
-- 自研多进程通信架构与任务 Runtime，分离控制面与数据面，支持核心与应用模块独立构建。
-- 已在 RK3576 泰山派 3M（4 GB）验证真实语音链路；常驻 WAV 测试中，L1、L3 各完成 30/30 轮请求。
+- **平台**：GD32F4xx（GD32F470VE）、STM32F4；Keil MDK，标准外设库与 HAL
+- **外设与机制**：UART / RS485 / SPI / I²C、DMA 与环形缓冲、中断与非阻塞状态机、Timer / RTC、内部 Flash 与 SPI Flash
+- **系统能力**：BootLoader 与 OTA（分区、CRC32、备份与回滚、向量表跳转）、参数掉电保存、协作式时间片调度
+- **联调与部署**：寄存器级驱动、软硬件联调，Linux aarch64 板端部署（RK3576）
 
-[源码与设计](https://github.com/Caden-1224/SlotNexus)
+**工程与工具**
 
-### [NexWeave](https://github.com/Caden-1224/nexweave)
+- CMake / CTest、Git、Docker、GitHub Actions
+- MATLAB、OpenCV 几何视觉、ROS 2；深度学习基础与 PyTorch（基础）
 
-<sub>🚧 <b>持续开发</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
+**工作方式**
 
-面向 Linux 边缘设备的任务框架。把会话生命周期、流式数据、取消和后端接入放进一套明确的执行契约，让模型与设备能够协同工作。
-
-- **关注的问题**：有界缓冲、跨进程取消、旧结果隔离，以及任务结束后的资源清理。
-- **当前进展**：已验证 Linux 多进程链路，交付真实 ASR / LLM / TTS、ALSA 适配器与全双工音频前端；VAD 与完整板端语音交互仍待完成。
-
-[查看源码](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [当前进展与路线图](https://github.com/Caden-1224/nexweave#status)
-
-### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
-
-<sub>🏆 <b>全国初赛一等奖</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
-
-面向工业现场的采集终端：宽压供电、三路采样、RS485 协议应答、参数掉电保存与远程固件升级。App 与 BootLoader 双工程，用协作式时间片轮询替代 RTOS；OTA 走「暂存 → CRC32 → 安装 / 备份 / 回滚 → 向量表跳转」闭环。
-
-- **自研约 15,200 行 C**；协议为 ASCII-Hex 帧 + CRC16-Modbus，29 条命令覆盖系统管理、数据面、参数、告警与升级。
-- **三块自绘板卡**（18–36 V 电源板、PT100 采样板、精密电阻模拟测试板）的 EDA 工程与原理图 / PCB 一并开源。
-- 止步初赛一等奖：进北京总决赛要先垫付路费与食宿，最后放弃了。[README 里写了这件事](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026#止步初赛)。
-
-[源码与文档](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
-
-### [STM32 Polled Scheduler](https://github.com/Caden-1224/stm32-polled-scheduler)
-
-<sub>📦 <b>可复用模板</b> &nbsp; / &nbsp; C · STM32F407 · HAL · 裸机</sub>
-
-从单片机开发中整理出来的裸机工程模板。用轻量的协作式轮询组织周期任务，按 **Core / Components / APP** 分层，把外设驱动、可复用组件和业务逻辑分开。
-
-- **包含的实践**：DMA、环形缓冲、非阻塞状态机，以及 SimpleFOC 双轴控制等模块。
-- **适用的场景**：希望保留裸机可控性，又需要清晰组织多个任务的小型嵌入式项目。
-
-[查看源码与使用说明](https://github.com/Caden-1224/stm32-polled-scheduler)
-
-我习惯先做一个可以运行的小切片，再用测试、日志和文档记录结论。这里既放项目，也留下理解这些问题的过程。
-
-## 🧰 手边的工具
+- 规格驱动 + 测试驱动：先把需求写成规格、接口契约与验收标准，再落实现与回归
+- 用 AI 编程工具（Claude Code、MCP）做项目级上下文接入、代码阅读、方案拆解与补丁验证，留下可追溯的规格与变更记录
 
 <!-- Theme-aware SVG assets are stored in this repository. -->
 <div align="center">
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-0-night.svg"><img src="./assets/chips/label-0.svg" alt="Languages &amp; Systems" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/c-night.svg"><img src="./assets/chips/c.svg" alt="C" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/cplusplus-night.svg"><img src="./assets/chips/cplusplus.svg" alt="C++" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/python-night.svg"><img src="./assets/chips/python.svg" alt="Python" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/gnubash-night.svg"><img src="./assets/chips/gnubash.svg" alt="Shell" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/linux-night.svg"><img src="./assets/chips/linux.svg" alt="Linux" height="30"></picture>
 <br/>
-<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-1-night.svg"><img src="./assets/chips/label-1.svg" alt="Embedded" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/stmicroelectronics-night.svg"><img src="./assets/chips/stmicroelectronics.svg" alt="STM32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/arm-night.svg"><img src="./assets/chips/arm.svg" alt="ARM" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/rtos-night.svg"><img src="./assets/chips/rtos.svg" alt="RTOS" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/bus-night.svg"><img src="./assets/chips/bus.svg" alt="Serial Bus" height="30"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-1-night.svg"><img src="./assets/chips/label-1.svg" alt="Embedded" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/gd32-night.svg"><img src="./assets/chips/gd32.svg" alt="GD32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/stmicroelectronics-night.svg"><img src="./assets/chips/stmicroelectronics.svg" alt="STM32" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/arm-night.svg"><img src="./assets/chips/arm.svg" alt="ARM" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/rtos-night.svg"><img src="./assets/chips/rtos.svg" alt="RTOS" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/bus-night.svg"><img src="./assets/chips/bus.svg" alt="Serial Bus" height="30"></picture>
 <br/>
 <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/label-2-night.svg"><img src="./assets/chips/label-2.svg" alt="Build &amp; Runtime" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/cmake-night.svg"><img src="./assets/chips/cmake.svg" alt="CMake" height="30"></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./assets/chips/zeromq-night.svg"><img src="./assets/chips/zeromq.svg" alt="ZeroMQ" height="30"></picture>
 <br/>
