@@ -23,7 +23,7 @@ I like following a problem one layer deeper. Where is the data waiting? Why does
 
 ## 🛠️ Projects · From boards to systems
 
-These projects trace my path from peripherals and task scheduling to interprocess communication and task runtimes.
+These projects run from board-level firmware to multiprocess middleware.
 
 ### [SlotNexus](https://github.com/Caden-1224/SlotNexus)
 
@@ -65,8 +65,8 @@ A bare-metal template shaped by my microcontroller projects. Lightweight coopera
 
 A task framework for Linux edge devices. It brings session lifecycles, streaming data, cancellation, and backend integration under explicit execution contracts so models and devices can work together.
 
-- **What I'm working through:** bounded buffering, cross-process cancellation, stale-result isolation, and cleanup when a task ends.
-- **Current progress:** validated the Linux multiprocess pipeline and implemented real ASR / LLM / TTS and ALSA adapters, plus a full-duplex audio frontend. VAD and complete hardware voice interaction remain to be integrated.
+- **What I'm working through:** bounded queues and backpressure, separating cancellation acceptance from cleanup completion, rejecting stale results by generation, and subprocess lifecycle with explicit ready/stop ordering.
+- **Current progress:** the Linux multiprocess end-to-end link (deterministic fake backends) is delivered at a basic level; the Zipformer ASR, Qwen3.5 text inference and MeloTTS adapters are implemented and verified individually on RK3576; real VAD, production ALSA/AEC and the full board-level loop remain to be done.
 
 [Source](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [Status and roadmap](https://github.com/Caden-1224/nexweave#status)
 
