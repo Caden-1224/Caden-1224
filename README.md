@@ -36,17 +36,6 @@
 
 [源码与设计](https://github.com/Caden-1224/SlotNexus)
 
-### [NexWeave](https://github.com/Caden-1224/nexweave)
-
-<sub>🚧 <b>持续开发</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
-
-面向 Linux 边缘设备的任务框架。把会话生命周期、流式数据、取消和后端接入放进一套明确的执行契约，让模型与设备能够协同工作。
-
-- **关注的问题**：有界缓冲、跨进程取消、旧结果隔离，以及任务结束后的资源清理。
-- **当前进展**：已验证 Linux 多进程链路，交付真实 ASR / LLM / TTS、ALSA 适配器与全双工音频前端；VAD 与完整板端语音交互仍待完成。
-
-[查看源码](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [当前进展与路线图](https://github.com/Caden-1224/nexweave#status)
-
 ### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
 
 <sub>🏆 <b>全国初赛一等奖</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
@@ -69,6 +58,17 @@
 - **适用的场景**：希望保留裸机可控性，又需要清晰组织多个任务的小型嵌入式项目。
 
 [查看源码与使用说明](https://github.com/Caden-1224/stm32-polled-scheduler)
+
+### [NexWeave](https://github.com/Caden-1224/nexweave)
+
+<sub>🚧 <b>持续开发</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
+
+面向 Linux 边缘设备的任务框架。把会话生命周期、流式数据、取消和后端接入放进一套明确的执行契约，让模型与设备能够协同工作。
+
+- **关注的问题**：有界缓冲、跨进程取消、旧结果隔离，以及任务结束后的资源清理。
+- **当前进展**：已验证 Linux 多进程链路，交付真实 ASR / LLM / TTS、ALSA 适配器与全双工音频前端；VAD 与完整板端语音交互仍待完成。
+
+[查看源码](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [当前进展与路线图](https://github.com/Caden-1224/nexweave#status)
 
 我习惯先做一个可以运行的小切片，再用测试、日志和文档记录结论。这里既放项目，也留下理解这些问题的过程。
 

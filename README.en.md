@@ -36,17 +36,6 @@ On-device multiprocess inference middleware for Linux edge devices. A general-pu
 
 [Source and design](https://github.com/Caden-1224/SlotNexus)
 
-### [NexWeave](https://github.com/Caden-1224/nexweave)
-
-<sub>🚧 <b>In development</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
-
-A task framework for Linux edge devices. It brings session lifecycles, streaming data, cancellation, and backend integration under explicit execution contracts so models and devices can work together.
-
-- **What I'm working through:** bounded buffering, cross-process cancellation, stale-result isolation, and cleanup when a task ends.
-- **Current progress:** validated the Linux multiprocess pipeline and implemented real ASR / LLM / TTS and ALSA adapters, plus a full-duplex audio frontend. VAD and complete hardware voice interaction remain to be integrated.
-
-[Source](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [Status and roadmap](https://github.com/Caden-1224/nexweave#status)
-
 ### [CIMC Industrial Embedded 2026](https://github.com/Caden-1224/CIMC-Industrial-Embedded-2026)
 
 <sub>🏆 <b>National Preliminary Round, First Prize</b> &nbsp; / &nbsp; C · GD32F470 · Keil MDK · RS485 · BootLoader / OTA</sub>
@@ -69,6 +58,17 @@ A bare-metal template shaped by my microcontroller projects. Lightweight coopera
 - **Where it fits:** small embedded projects that need clear task organization and direct control of the hardware.
 
 [Source and usage guide](https://github.com/Caden-1224/stm32-polled-scheduler)
+
+### [NexWeave](https://github.com/Caden-1224/nexweave)
+
+<sub>🚧 <b>In development</b> &nbsp; / &nbsp; C++17 · Linux · ZeroMQ · CMake / CTest</sub>
+
+A task framework for Linux edge devices. It brings session lifecycles, streaming data, cancellation, and backend integration under explicit execution contracts so models and devices can work together.
+
+- **What I'm working through:** bounded buffering, cross-process cancellation, stale-result isolation, and cleanup when a task ends.
+- **Current progress:** validated the Linux multiprocess pipeline and implemented real ASR / LLM / TTS and ALSA adapters, plus a full-duplex audio frontend. VAD and complete hardware voice interaction remain to be integrated.
+
+[Source](https://github.com/Caden-1224/nexweave) &nbsp; · &nbsp; [Status and roadmap](https://github.com/Caden-1224/nexweave#status)
 
 I tend to start with a small runnable slice, then use tests, logs, and documentation to record what I learn. These repositories hold both the projects and the process of understanding them.
 
