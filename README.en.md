@@ -8,6 +8,7 @@
 </p>
 
 <p align="center">
+  <img src="./assets/avatar.png" width="120" alt="Caden"><br><br>
   <strong>Communication Engineering student · Embedded · Linux · Edge AI</strong><br>
   From EE to CS: starting with low-level hardware, moving up into computer systems
 </p>

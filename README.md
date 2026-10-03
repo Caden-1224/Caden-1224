@@ -8,6 +8,7 @@
 </p>
 
 <p align="center">
+  <img src="./assets/avatar.png" width="120" alt="Caden"><br><br>
   <strong>通信工程在读 · 嵌入式 · Linux · 端侧 AI</strong><br>
   从 EE 走向 CS：从底层硬件做起，往计算机系统的上层走
 </p>
