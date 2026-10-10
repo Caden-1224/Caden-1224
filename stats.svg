@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 176" width="640" height="176" role="img" aria-label="Caden-1224 on GitHub: 15 stars, 145 authored commits across 5 owned public non-fork repositories; updated 2026-10-10T18:25Z">
+  <title>Caden-1224 - 15 stars, 145 authored commits, 5 owned public non-fork repositories</title>
+  <desc>Public repositories owned by Caden-1224, excluding forks. Includes archived repositories. Commits count only those authored by Caden-1224 in each current default-branch history, across all time; summed per repository. Last successful update: 2026-10-10T18:25Z.</desc>
+  <defs>
+    <pattern id="dotgrid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#e2ecf8"/></pattern>
+  </defs>
+  <rect x="1" y="1" width="638" height="174" rx="10" fill="#ffffff" stroke="#d3e2f1" stroke-width="2"/>
+  <rect x="1" y="1" width="638" height="174" rx="10" fill="url(#dotgrid)"/>
+  <path d="M26 34H46" stroke="#e0483c" stroke-width="2"/>
+  <text x="54" y="39" font-family="Consolas, monospace" font-size="11" letter-spacing="1.6" fill="#526b86">CADEN-1224 / GITHUB STATS</text>
+  <path d="M210 62V138M420 62V138" stroke="#e2ecf8" stroke-width="1.5"/>
+  <g transform="translate(40 86)"><path d="M0 -10L2.351 -3.236L9.511 -3.09L3.804 1.236L5.878 8.09L0 4L-5.878 8.09L-3.804 1.236L-9.511 -3.09L-2.351 -3.236Z" fill="#e0483c"/></g>
+  <text x="62" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="650" fill="#12304e">15</text>
+  <text x="28" y="130" font-family="Consolas, monospace" font-size="10" letter-spacing="1.4" fill="#526b86">PUBLIC STARS</text>
+  <g transform="translate(250 86)" fill="none" stroke="#2f6fd0" stroke-width="2">
+    <path d="M-10 0H-4M4 0H10"/><circle r="4"/>
+  </g>
+  <text x="272" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="650" fill="#12304e">145</text>
+  <text x="238" y="130" font-family="Consolas, monospace" font-size="10" letter-spacing="1.4" fill="#526b86">MY COMMITS</text>
+  <g transform="translate(454 86)">
+    <rect x="-8" y="-9" width="16" height="18" rx="3" fill="none" stroke="#2f6fd0" stroke-width="2"/>
+    <path d="M-4 -3H4M-4 2H4" stroke="#2f6fd0" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="476" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="650" fill="#12304e">5</text>
+  <text x="442" y="130" font-family="Consolas, monospace" font-size="10" letter-spacing="1.4" fill="#526b86">PUBLIC REPOS</text>
+  <path d="M26 148H614" stroke="#e2ecf8" stroke-width="1.5"/>
+  <text x="26" y="166" font-family="Consolas, monospace" font-size="9" letter-spacing="0.5" fill="#526b86">UPDATED 10-10 18:25 UTC</text>
+  <text x="614" y="166" text-anchor="end" font-family="Consolas, monospace" font-size="9" letter-spacing="0.5" fill="#526b86">PUBLIC · OWNED · NON-FORK</text>
+</svg>
