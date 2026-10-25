@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">Caden — from signals to systems</title>
+  <desc id="desc">EE to CS. Curious about what runs underneath. An analog signal becomes digital logic, then branches into software, systems, and hardware.</desc>
+  <defs>
+    <clipPath id="frame"><rect x="1" y="1" width="898" height="298" rx="16"/></clipPath>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".75" fill="#b8cce4"/></pattern>
+    <linearGradient id="panel" x1="0" x2="1"><stop stop-color="#f7faff"/><stop offset="1" stop-color="#edf4fd"/></linearGradient>
+  </defs>
+  <style>
+    .mobile { display: none; }
+    @media (max-width: 600px) { .desktop { display: none; } .mobile { display: inline; } }
+  </style>
+  <g clip-path="url(#frame)">
+    <rect width="900" height="300" fill="url(#panel)"/>
+    <rect x="465" y="0" width="435" height="256" fill="url(#grid)" opacity=".45"/>
+    <path d="M40 256H860" stroke="#d4e1f1"/>
+    <g class="desktop">
+      <path d="M42 43H68" stroke="#2f6fd0" stroke-width="3" stroke-linecap="round"/>
+      <text x="80" y="48" font-size="14" font-weight="600" letter-spacing="1.4" fill="#526b87">EE <tspan fill="#e0483c">→</tspan> CS</text>
+      <text x="860" y="47" text-anchor="end" font-size="11.5" font-weight="600" letter-spacing="1.5" fill="#7690ad">FROM SIGNALS TO SYSTEMS</text>
+      <text x="39" y="146" font-size="80" font-weight="700" letter-spacing="-3.5" fill="#17324f">Caden<tspan fill="#e0483c">.</tspan></text>
+      <text x="43" y="185" font-size="18" fill="#526b87">Curious about what runs underneath.</text>
+      <path d="M43 218H67" stroke="#e0483c" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="80" y="223" font-size="13" fill="#526b87">Learning. Building. One layer deeper.</text>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M491 159H701" stroke="#d4e1f1" stroke-width="1.5"/>
+        <path d="M491 159C504 159 504 129 517 129S530 189 543 189S556 129 569 129S582 159 595 159H610V138H634V180H658V138H682V159H702" stroke="#2f6fd0" stroke-width="3"/>
+        <path d="M702 159H710M710 159V116H727M710 159H727M710 159V202H727" stroke="#e0483c" stroke-width="2"/>
+      </g>
+      <circle class="signal-focus" cx="702" cy="159" r="10" fill="#e0483c" opacity=".14"/>
+      <circle cx="702" cy="159" r="4" fill="#e0483c"/>
+      <g fill="#ffffff" stroke="#d4e1f1">
+        <rect x="727" y="98" width="133" height="36" rx="7"/>
+        <rect x="727" y="141" width="133" height="36" rx="7"/>
+        <rect x="727" y="184" width="133" height="36" rx="7"/>
+      </g>
+      <g font-size="13" font-weight="500" fill="#17324f">
+        <text x="758" y="121">software</text>
+        <text x="758" y="164">systems</text>
+        <text x="758" y="207">hardware</text>
+      </g>
+      <g fill="#2f6fd0"><circle cx="742" cy="116" r="3"/><circle cx="742" cy="159" r="3"/><circle cx="742" cy="202" r="3"/></g>
+      <g font-size="10.5" font-weight="600" letter-spacing="1.5" fill="#7690ad">
+        <text x="505" y="220">SIGNAL</text><text x="622" y="220">LOGIC</text>
+      </g>
+      <g font-size="12" font-weight="500" letter-spacing="1.1" fill="#526b87">
+        <text x="43" y="280"><tspan fill="#2f6fd0">01</tspan> / EMBEDDED</text>
+        <text x="373" y="280"><tspan fill="#2f6fd0">02</tspan> / LINUX</text>
+        <text x="713" y="280"><tspan fill="#2f6fd0">03</tspan> / SYSTEMS</text>
+      </g>
+    </g>
+    <g class="mobile" display="none">
+      <text x="40" y="147" font-size="116" font-weight="700" letter-spacing="-5" fill="#17324f">Caden<tspan fill="#e0483c">.</tspan></text>
+      <text x="44" y="201" font-size="29" fill="#526b87">Curious about what runs underneath.</text>
+      <text x="856" y="69" text-anchor="end" font-size="27" font-weight="600" letter-spacing="1.5" fill="#526b87">EE <tspan fill="#e0483c">→</tspan> CS</text>
+      <path d="M617 124C629 124 629 99 641 99S653 149 665 149S677 99 689 99S701 124 713 124H732V106H758V142H784V106H810V124H856" fill="none" stroke="#2f6fd0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="856" cy="124" r="4.5" fill="#e0483c"/>
+      <text x="44" y="282" font-size="23" font-weight="500" letter-spacing=".7" fill="#526b87">EMBEDDED <tspan fill="#e0483c">/</tspan> LINUX <tspan fill="#e0483c">/</tspan> SYSTEMS</text>
+    </g>
+  </g>
+  <rect x="1" y="1" width="898" height="298" rx="16" fill="none" stroke="#d4e1f1" stroke-width="1.5"/>
+</svg>

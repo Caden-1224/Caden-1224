@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">Caden — from signals to systems</title>
+  <desc id="desc">EE to CS. Curious about what runs underneath. An analog signal becomes digital logic, then branches into software, systems, and hardware.</desc>
+  <defs>
+    <clipPath id="frame"><rect x="1" y="1" width="898" height="298" rx="16"/></clipPath>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".75" fill="#b8cce4"/></pattern>
+    <linearGradient id="panel" x1="0" x2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#ecf3fd"/></linearGradient>
+    <radialGradient id="glow" cx=".76" cy=".40" r=".52">
+      <stop stop-color="#d3e5fc" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#cfe2fb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gridfade" x1="0" x2="1">
+      <stop stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".42" stop-color="#ffffff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="gridmask"><rect x="465" y="0" width="435" height="256" fill="url(#gridfade)"/></mask>
+    <linearGradient id="edge" x1="0" x2="1">
+      <stop stop-color="#2f6fd0" stop-opacity="0"/>
+      <stop offset=".4" stop-color="#2f6fd0" stop-opacity=".5"/>
+      <stop offset=".82" stop-color="#2f6fd0" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#e0483c" stop-opacity=".8"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#17324f"/>
+      <stop offset="1" stop-color="#22527f"/>
+    </linearGradient>
+    <linearGradient id="wave" gradientUnits="userSpaceOnUse" x1="0" y1="126" x2="0" y2="192">
+      <stop stop-color="#2f6fd0" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#2f6fd0" stop-opacity=".02"/>
+    </linearGradient>
+    <filter id="lift" x="-25%" y="-60%" width="150%" height="240%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2.6" flood-color="#0d2542" flood-opacity=".13"/>
+    </filter>
+  </defs>
+  <style>
+    .mobile { display: none; }
+    .signal-focus { animation: breathe 5s ease-in-out infinite; }
+    @keyframes breathe { 0%, 100% { opacity: .14; } 50% { opacity: .32; } }
+    .motion { display: inline; }
+    @media (prefers-reduced-motion: reduce) { .signal-focus { animation: none; } .motion { display: none; } }
+
+    @media (max-width: 600px) { .desktop { display: none; } .mobile { display: inline; } }
+  </style>
+  <g clip-path="url(#frame)">
+    <rect width="900" height="300" fill="url(#panel)"/>
+    <rect width="900" height="300" fill="url(#glow)"/>
+    <rect x="465" y="0" width="435" height="256" fill="url(#grid)" opacity=".45" mask="url(#gridmask)"/>
+    <path d="M40 256H860" stroke="#d4e1f1"/>
+    <g class="desktop">
+      <path d="M42 43H68" stroke="#2f6fd0" stroke-width="3" stroke-linecap="round"/>
+      <text x="80" y="48" font-size="14" font-weight="600" letter-spacing="1.4" fill="#526b87">EE <tspan fill="#e0483c">→</tspan> CS</text>
+      <text x="860" y="47" text-anchor="end" font-size="11.5" font-weight="600" letter-spacing="1.5" fill="#7690ad">FROM SIGNALS TO SYSTEMS</text>
+      <text x="39" y="146" font-size="80" font-weight="700" letter-spacing="-3.5" fill="url(#ink)">Caden<tspan fill="#e0483c">.</tspan></text>
+      <text x="43" y="185" font-size="18" fill="#526b87">Curious about what runs underneath.</text>
+      <path d="M43 218H67" stroke="#e0483c" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="80" y="223" font-size="13" fill="#526b87">Learning. Building. One layer deeper.</text>
+      <g stroke="#bcd0e8" stroke-width="1.1">
+        <path d="M526 155.5V162.5M561 155.5V162.5M596 155.5V162.5M631 155.5V162.5M666 155.5V162.5"/>
+      </g>
+      <path d="M491 159H701" stroke="#d4e1f1" stroke-width="1.5"/>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M491 159C504 159 504 129 517 129S530 189 543 189S556 129 569 129S582 159 595 159H610V138H634V180H658V138H682V159H702" fill="url(#wave)"/>
+        <path d="M491 159C504 159 504 129 517 129S530 189 543 189S556 129 569 129S582 159 595 159H610V138H634V180H658V138H682V159H702" stroke="#2f6fd0" stroke-width="8" stroke-opacity=".07"/>
+        <path id="sig" d="M491 159C504 159 504 129 517 129S530 189 543 189S556 129 569 129S582 159 595 159H610V138H634V180H658V138H682V159H702" stroke="#2f6fd0" stroke-width="3"/>
+        <path d="M702 159H710M710 159V116H727M710 159H727M710 159V202H727" stroke="#e0483c" stroke-width="2"/>
+      </g>
+      <g class="motion">
+        <circle r="3.4" fill="#e0483c">
+          <animateMotion dur="6s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.68;1" calcMode="linear" path="M491 159C504 159 504 129 517 129S530 189 543 189S556 129 569 129S582 159 595 159H610V138H634V180H658V138H682V159H702"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.66;.72" dur="6s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      <circle class="signal-focus" cx="702" cy="159" r="10" fill="#e0483c" opacity=".14"/>
+      <g class="motion"><circle cx="702" cy="159" r="5" fill="none" stroke="#e0483c" stroke-width="1.5"><animate attributeName="r" values="5;16" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0" dur="2.8s" repeatCount="indefinite"/></circle></g>
+      <circle cx="702" cy="159" r="4" fill="#e0483c"/>
+      <g fill="#ffffff" stroke="#d4e1f1" filter="url(#lift)">
+        <rect x="727" y="98" width="133" height="36" rx="7"/>
+        <rect x="727" y="141" width="133" height="36" rx="7"/>
+        <rect x="727" y="184" width="133" height="36" rx="7"/>
+      </g>
+      <g font-size="13" font-weight="500" fill="#17324f">
+        <text x="758" y="121">software</text>
+        <text x="758" y="164">systems</text>
+        <text x="758" y="207">hardware</text>
+      </g>
+      <g fill="#2f6fd0"><circle cx="742" cy="116" r="3"/><circle cx="742" cy="159" r="3"/><circle cx="742" cy="202" r="3"/></g>
+      <g font-size="10.5" font-weight="600" letter-spacing="1.5" fill="#7690ad">
+        <text x="505" y="220">SIGNAL</text><text x="622" y="220">LOGIC</text>
+      </g>
+      <g font-size="12" font-weight="500" letter-spacing="1.1" fill="#526b87">
+        <text x="43" y="280"><tspan fill="#2f6fd0">01</tspan> / EMBEDDED</text>
+        <text x="373" y="280"><tspan fill="#2f6fd0">02</tspan> / LINUX</text>
+        <text x="713" y="280"><tspan fill="#2f6fd0">03</tspan> / SYSTEMS</text>
+      </g>
+    </g>
+    <g class="mobile" display="none">
+      <text x="40" y="147" font-size="116" font-weight="700" letter-spacing="-5" fill="url(#ink)">Caden<tspan fill="#e0483c">.</tspan></text>
+      <text x="44" y="201" font-size="29" fill="#526b87">Curious about what runs underneath.</text>
+      <text x="856" y="69" text-anchor="end" font-size="27" font-weight="600" letter-spacing="1.5" fill="#526b87">EE <tspan fill="#e0483c">→</tspan> CS</text>
+      <path d="M617 124C629 124 629 99 641 99S653 149 665 149S677 99 689 99S701 124 713 124H732V106H758V142H784V106H810V124H856" fill="url(#wave)"/>
+      <path d="M617 124C629 124 629 99 641 99S653 149 665 149S677 99 689 99S701 124 713 124H732V106H758V142H784V106H810V124H856" fill="none" stroke="#2f6fd0" stroke-width="8" stroke-opacity=".07" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M617 124C629 124 629 99 641 99S653 149 665 149S677 99 689 99S701 124 713 124H732V106H758V142H784V106H810V124H856" fill="none" stroke="#2f6fd0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle class="signal-focus" cx="856" cy="124" r="11" fill="#e0483c" opacity=".14"/>
+      <circle cx="856" cy="124" r="4.5" fill="#e0483c"/>
+      <text x="44" y="282" font-size="23" font-weight="500" letter-spacing=".7" fill="#526b87">EMBEDDED <tspan fill="#e0483c">/</tspan> LINUX <tspan fill="#e0483c">/</tspan> SYSTEMS</text>
+    </g>
+    <rect x="1" y="0" width="898" height="3" fill="url(#edge)"/>
+  </g>
+  <rect x="1" y="1" width="898" height="298" rx="16" fill="none" stroke="#d4e1f1" stroke-width="1.5"/>
+</svg>
